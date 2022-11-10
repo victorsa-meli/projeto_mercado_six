@@ -26,7 +26,8 @@ public class Mercado {
     }
 
     // CRIA INTERFACE MENU
-    public static void menu() {
+
+        public static void menu () {
 
         System.out.println("___________________________________________________");
         System.out.println("           BEM VINDO AO MERCADO SIX                ");
@@ -34,11 +35,9 @@ public class Mercado {
         System.out.println("                                                   ");
         System.out.println("     SELECIONE UMA OP QUE DESEJA REALIZAR          ");
         System.out.println("                                                   ");
-        System.out.println("      1 - CADASTRAR                                ");
-        System.out.println("      2 - LISTAR                                   ");
-        System.out.println("      3 - COMPRAR                                  ");
-        System.out.println("      4 - CARRINHO                                 ");
-        System.out.println("      5 - EXCLUIR                                  ");
+        System.out.println("      1 - CADASTRAR                                         ");
+        System.out.println("      2 - LISTAR                                                    ");
+        System.out.println("      5 - EXCLUIR                                   ");
         System.out.println("      6 - ALTERAR                                  ");
         System.out.println("      7 - SAIR                                      ");
         System.out.println("___________________________________________________");
@@ -75,7 +74,7 @@ public class Mercado {
     }
 
 
-    public static void cadastrarProdutos() {
+        public static void cadastrarProdutos () {
 
         System.out.println("Nome do produto: ");
         String nome = input.next();
@@ -94,7 +93,7 @@ public class Mercado {
 
     }
 
-    private static void listarProdutos() {
+        private static void listarProdutos () {
         if (produtos.size() > 0) {
             System.out.println("Lista de produtos \n");
 
@@ -109,8 +108,11 @@ public class Mercado {
     }
 
 
-    private static void comprarProdutos() {
-        if (produtos.size() > 0) {
+        private static void comprarProdutos () {
+
+        System.out.println("Funcao descontinuada.");
+    }
+      /*  if (produtos.size() > 0) {
             System.out.println("Codigo do produto: \n");
 
             System.out.println("          PRODUTOS DISPONIVEIS              ");
@@ -168,11 +170,20 @@ public class Mercado {
         }
 
 
-    }
+    }*/
 
-    // cria um metodo para visualizar produtos no carrinho
-    private static void verCarrinho() {
+        // cria um metodo para visualizar produtos no carrinho
+        private static void verCarrinho () {
+
+        System.out.println("Funcao Descontinuada");
+        menu();
+        /*
+
+
         System.out.println("          -----------  Produtos no seu carrinho -----------              ");
+
+
+
 
         if (carrinho.size() > 0) {
 
@@ -185,29 +196,58 @@ public class Mercado {
 
         menu();
 
-
+*/
     }
 
 
+        private static void excluirProdutos () {
 
-    private static void excluirProdutos(){
+        if (produtos.size() > 0) {
+            System.out.println("Codigo do produto: \n");
+
+            System.out.println("          PRODUTOS DISPONIVEIS              ");
+            for (Produto p : produtos) {
+
+                System.out.println(p + "\n");
+            }
+
+
+            int id = Integer.parseInt(input.next());
+            boolean isPresent = false;
+
+
+            for (Produto p : produtos) {
+                if (p.getId() == id) {
+                    produtos.remove(p);
+                }
+                // informa ao usuário que o produto no carrinho foi adicionado.
+                System.out.println(p.getNome() + " Removido.");
+                menu();
+            }
+
+
+        } else {
+            System.out.println("Produto nao encontrado.");
+            menu();
+
+        }
+
+    }
+
+        private static void alterarProdutos () {
 
         System.out.println("Funcao em desenvolvimento");
         menu();
-
     }
 
+        private static void finalizarCompra () {
 
 
-    private static void alterarProdutos(){
 
-        System.out.println("Funcao em desenvolvimento");
-        menu();
-    }
+       /*double valorDaCompra = 0.0;
 
-    private static void finalizarCompra() {
-        double valorDaCompra = 0.0;
-        System.out.println("Seus produtos!");
+
+       System.out.println("Seus produtos!");
 
 
         for (Produto p : carrinho.keySet()) {
@@ -219,14 +259,17 @@ public class Mercado {
             System.out.println("\n");
 
 
-        }
+            System.out.println("O valor da sua compra e: " + Utils.doubleToString(valorDaCompra));
+            carrinho.clear();
+            System.out.println("Obrigado pela preferencia!!");
+            menu();
 
-        System.out.println("O valor da sua compra e: " + Utils.doubleToString(valorDaCompra));
-        carrinho.clear();
-        System.out.println("Obrigado pela preferencia!!");
-        menu();
+
+        }
+        */
+
 
     }
 
+    }
 
-}
